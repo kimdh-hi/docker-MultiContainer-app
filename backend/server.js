@@ -20,6 +20,7 @@ app.get("/api/values", (req, res, next) => {
 });
 
 app.post("/api/value", (req, res, next) => {
+  console.log("save query: ", req.body.value);
   db.pool.query(
     `INSERT INTO contents(value) VALUE(${req.body.value});`,
     (err, results, fields) => {
