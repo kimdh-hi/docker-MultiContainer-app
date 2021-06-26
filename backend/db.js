@@ -5,7 +5,7 @@ var pool = mysql.createPool({
   host: "mysql",
   user: "root",
   password: "1234",
-  database: "docker-fullstack-app",
+  database: "app",
 });
 
 exports.pool = pool;
