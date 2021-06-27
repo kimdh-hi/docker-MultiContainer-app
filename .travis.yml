@@ -14,14 +14,14 @@ before_install:
 script:
   - docker run -e CI=true zbeld123/react-test npm run test
 
-# 운영모드 이미지 빌드a
+# 운영모드 이미지 빌드
 after_success:
   - docekr build -t zbeld123/docker-frontend ./frontend
   - docker build -t zbeld123/docker-backend ./backend
   - docker build -t zbeld123/docker-nginx ./nginx
   # Docker hub에 로그인
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
-  # Docker hub에 pushh
+  # Docker hub에 push
   - docker push zbeld123/docker-frontend
   - docker push zbeld123/docker-backend
   - docker push zbeld123/docker-nginx
