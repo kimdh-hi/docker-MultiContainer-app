@@ -1,0 +1,27 @@
+language: generic
+
+sudo: required
+
+# Travis CI에게 Docker환경에서 구동됨을 명시
+services:
+  - docker
+
+# 운영모드 이미지 빌드 전 frontend (react) 테스트를 위한 이미지 빌드
+before_install:
+  - docker build -t zbeld123/react-test -f ./frontend/Dockerfile.dev ./frontend
+
+# 테스트 수행 Travis CI에서 수행됨
+script:
+  - dcoekr run -e CI=true zbeld123/react-test npm run test
+
+# 운영모드 이미지 빌드
+after_success:
+  - docekr build -t zbeld123/docker-frontend ./frontend
+  - docker build -t zbeld123/docker-backend ./backend
+  - docker build -t zbeld123/docker-nginx ./nginx
+  # Docker hub에 로그인
+  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
+  # Docker hub에 push
+  - docker push zbeld123/docker-frontend
+  - docker push zbeld123/docker-backend
+  - docker push zbeld123/docker-nginx
