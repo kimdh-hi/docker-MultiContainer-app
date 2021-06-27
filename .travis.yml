@@ -21,7 +21,7 @@ after_success:
   - docker build -t zbeld123/docker-nginx ./nginx
   # Docker hub에 로그인
   - echo "$DOCKER_HUB_PASSWORD" | docker login -u "$DOCKER_HUB_ID" --password-stdin
-  # Docker hub에 push
+  # Docker hub에 pushh
   - docker push zbeld123/docker-frontend
   - docker push zbeld123/docker-backend
   - docker push zbeld123/docker-nginx
