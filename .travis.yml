@@ -16,7 +16,7 @@ script:
 
 # 운영모드 이미지 빌드
 after_success:
-  - docekr build -t zbeld123/docker-frontend ./frontend
+  - docker build -t zbeld123/docker-frontend ./frontend
   - docker build -t zbeld123/docker-backend ./backend
   - docker build -t zbeld123/docker-nginx ./nginx
   # Docker hub에 로그인
