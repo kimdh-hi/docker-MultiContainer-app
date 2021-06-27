@@ -12,7 +12,7 @@ before_install:
 
 # 테스트 수행 Travis CI에서 수행됨
 script:
-  - dcoekr run -e CI=true zbeld123/react-test npm run test
+  - docker run -e CI=true zbeld123/react-test npm run test
 
 # 운영모드 이미지 빌드
 after_success:
