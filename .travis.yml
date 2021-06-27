@@ -14,7 +14,7 @@ before_install:
 script:
   - docker run -e CI=true zbeld123/react-test npm run test
 
-# 운영모드 이미지 빌드
+# 운영모드 이미지 빌드a
 after_success:
   - docekr build -t zbeld123/docker-frontend ./frontend
   - docker build -t zbeld123/docker-backend ./backend
