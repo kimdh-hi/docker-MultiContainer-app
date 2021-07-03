@@ -1,8 +1,8 @@
-=================
-운영환경 Dockerfile
-=================
+# =================
+# 운영환경 Dockerfile
+# =================
 
-==== Builder Stage ====
+# ==== Builder Stage ====
 FROM node:alpine as builder
 WORKDIR /app
 COPY ./package.json ./
