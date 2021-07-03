@@ -3,7 +3,7 @@
 # =================
 
 # ==== Builder Stage ====
-FROM node:10 as builder
+FROM node:alpine as builder
 WORKDIR /app
 COPY ./package.json ./
 RUN npm install
