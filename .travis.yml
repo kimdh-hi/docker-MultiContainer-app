@@ -36,6 +36,6 @@ deploy:
   bucket_name: elasticbeanstalk-ap-northeast-2-771839060615 # S3 bucket name
     bucket_path: "docker-fullstack-app"  # 애플리케이션 이름과 동일
   on:
-    branch: master                   # 어떤 brach에서 배포를 수행할 지 설정  
+    branch: master                    # 어떤 brach에서 배포를 수행할 지 설정  
   access_key_id: $AWS_ACCESS_KEY      # AWS IAM access key (TraviaCI에 등록된)
   secret_access_key: $AWS_SECRET_ACCESS_KEY # AWS IAM secret access key (TraviaCI에 등록된)
